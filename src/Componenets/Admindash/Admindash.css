@@ -1,0 +1,384 @@
+.admin_dash {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #2e3b55;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  z-index: 11;
+}
+.Heading_Sidebar {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.Heading_Sidebar img {
+  margin: 1rem;
+}
+.sidebar_options p {
+  font-size: 1.5rem;
+  text-align: left;
+  color: #f4f6f9;
+}
+
+.sidebar_profile {
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+
+.sidebar_profile img {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+}
+.logOut_Btn{
+  background-color: #007bff;
+}
+.sidebar_option {
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
+  margin: 4px 0;
+  color: #444;
+}
+
+.sidebar_option.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar_profile.active {
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+}
+
+/* Scrollable Main Content */
+.main_dash {
+  margin-left: 280px;
+  width: calc(100% - 280px);
+  overflow-y: auto;
+  height: 100vh;
+  /* background-color: #f4f6f9; */
+}
+
+.header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+.header input {
+  margin: 0;
+  width: 80%;
+}
+
+.search_bar{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.search_bar button{
+  width: fit-content;
+}
+.header img {
+  width: 40px;
+  height: 40px;
+}
+
+.left_header {
+  display: flex;
+  align-items: center;
+}
+
+.left_header button {
+  height: fit-content;
+  width: fit-content;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+  align-items: center;
+}
+
+.profile p {
+  margin: 0;
+  color: black;
+  font-size: 1rem;
+}
+.main_content {
+  background: #dedede;
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+  padding: 2rem;
+}
+.profile_view {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile_view p {
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.create_task {
+  max-width: 500px;
+  margin: 0rem auto;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create_task label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.progress_bar{
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+.progress_bar input{
+  margin-bottom: auto;
+  width: 80%;
+}
+
+.create_task input,
+.create_task select {
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.create_task input:focus,
+.create_task select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.create_task button {
+  margin-top: 1rem;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create_task button:hover {
+  background-color: #0056b3;
+}
+
+/* css for tasks shown in tasks */
+.tasks {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+/* spinner css  */
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.spinner {
+  border: 2.5px solid #f3f3f3;
+  border-top: 2.5px solid #007bff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* card css */
+.task-card {
+  width: 340px;
+  min-height: 450px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.8rem;
+  margin: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.task-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.task-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #d1d5db;
+  padding-bottom: 0.5rem;
+}
+
+.task-detail {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.task-detail strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  color: #fff;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.priority-high {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+}
+
+.priority-medium {
+  background: linear-gradient(to right, #f59e0b, #d97706);
+}
+
+.priority-low {
+  background: linear-gradient(to right, #10b981, #059669);
+}
+
+.tasks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* css for employees details */
+
+.employee-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;  
+  justify-content: space-around;
+  gap: 1.5rem;
+  padding: 2rem;
+  min-height: calc(100vh - 80px); 
+  background-color: #dedede; 
+  box-sizing: border-box;
+}
+
+.employee-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 300px;
+  height: 300;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.employee-card:hover {
+  transform: translateY(-5px);
+}
+
+.employee-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.employee-detail {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.employee-detail strong {
+  font-weight: 600;
+}
+

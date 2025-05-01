@@ -1,0 +1,6 @@
+.mytask-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
+}

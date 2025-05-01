@@ -1,0 +1,20 @@
+.Notifier {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+  }
+  
+  .Notifier.show {
+    bottom: 30px;
+    opacity: 1;
+  }
+  

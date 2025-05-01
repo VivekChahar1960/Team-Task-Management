@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.Main_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh);
+    background: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Heading{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 380px;
+}
+.SignUp,
+.Login {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.SignUp label,
+.Login label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    transition: 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #5aa1e3;
+    box-shadow: 0 0 0 3px rgba(90, 161, 227, 0.2);
+}
+
+button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background-color: #5aa1e3;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3b85c3;
+}
+
+p {
+    margin-top: 1rem;
+    color: #5aa1e3;
+    cursor: pointer;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #3b85c3;
+}
+.Login span,.SignUp span{
+    color: black;
+}
+

@@ -1,0 +1,102 @@
+/* Search.css */
+
+.search-results {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Task Card */
+  .task-search-card {
+    max-width: 500px;
+    width: 100%;
+    background: #fff;
+    border-left: 6px solid #ef4444;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .task-search-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .task-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+  
+  .task-info {
+    font-size: 0.95rem;
+    color: #374151;
+    margin: 0.4rem 0;
+  }
+  
+  .task-info strong {
+    color: #111827;
+    font-weight: 600;
+  }
+  
+  .priority-badge {
+    display: inline-block;
+    background-color: #ef4444;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+  }
+  
+  /* Employee Card */
+  .employee-search-card {
+    max-width: 500px;
+    width: 100%;
+    background: linear-gradient(to right, #f3f4f6, #ffffff);
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .employee-search-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  }
+  
+  .employee-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+  }
+  
+  .employee-info {
+    font-size: 0.95rem;
+    color: #374151;
+    margin: 0.4rem 0;
+  }
+  
+  .employee-info strong {
+    color: #111827;
+    font-weight: 600;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+    text-transform: capitalize;
+  }
+  
