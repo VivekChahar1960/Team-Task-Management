@@ -52,7 +52,7 @@ const Search = ({ searchText }) => {
             <p className="task-info"><strong>Task ID:</strong> {result.taskId}</p>
             <p className="task-info"><strong>Description:</strong> {result.description}</p>
             <p className="task-info"><strong>Progress:</strong> {result.progress}</p>
-            <p className="task-info"><strong>Assigned to:</strong> {result.employeeId}</p>
+            <p className="task-info"><strong>Assigned to:</strong> {result.assignedTo}</p>
             <p className="task-info"><strong>Assigned Date:</strong> {result.assignDate}</p>
             <p className="task-info"><strong>Due Date:</strong> {result.dueDate}</p>
             <p className="task-info">

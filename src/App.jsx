@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Route, Routes } from "react-router-dom";
+import { Navigate, useNavigate,Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Componenets/Login/Login";
 import Admindash from "./Componenets/Admindash/Admindash";
@@ -9,10 +9,10 @@ import { useNotification } from "./Context/NotificationContext";
 
 function App() {
   const [user, setUser] = useState(() => window.localStorage.getItem("user"));
+  const navigate = useNavigate();
   const [userRole, setUserRole] = useState(() =>
     window.localStorage.getItem("role")
   );
-  const navigate = useNavigate();
   const { showNotification } = useNotification();
   const logout = () => {
     if (user && userRole) {
@@ -35,7 +35,7 @@ function App() {
           path="/"
           element={
             user && userRole ? (
-              <navigate to={`/${userRole}`} replace />
+              <Navigate to={`/${userRole}`} replace />
             ) : (
               <Login setUserAd={setUser} setUserRoleAd={setUserRole} />
             )

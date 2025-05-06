@@ -4,6 +4,7 @@ import profile_img from "../../assets/profile.png";
 import TTM_icon from "../../assets/TTM_icon.png";
 import { getDatabase, ref, get } from "firebase/database";
 import { useNotification } from "../../Context/NotificationContext";
+import { useAlertContext } from "../../Context/AlertContext";
 import Profile from "../MainComponents/Profile";
 import Employees from "../MainComponents/Employees";
 import Tasks from "../MainComponents/Tasks";
@@ -25,6 +26,7 @@ const Admindash = ({ logout }) => {
 
   const db = getDatabase();
   const { showNotification } = useNotification();
+  const {showAlert} = useAlertContext();
 
   async function fetchEmployees() {
     setLoading(true);
@@ -49,6 +51,7 @@ const Admindash = ({ logout }) => {
       setLoading(false);
     }
   }
+  
   async function fetchTasks() {
     setLoading(true);
     try {
@@ -68,6 +71,7 @@ const Admindash = ({ logout }) => {
         setTasks([]);
       }
     } catch (error) {
+      
       showNotification(`Error fetching tasks: ${error}`);
     } finally {
       setLoading(false);
@@ -167,7 +171,6 @@ const Admindash = ({ logout }) => {
           }}/>
           <button type="submit" onClick={()=>{
             handleTabClick("search_bar")
-            // setSearchText("");
           }}>Search</button>
           </div>
           <div className="left_header">

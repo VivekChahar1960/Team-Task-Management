@@ -6,7 +6,7 @@ import { useState } from "react";
 // import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebaseConfig";
 import { getDatabase, ref, set, get } from "firebase/database";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import TTM_img from "../../assets/TTM_icon.png";
 import { useNotification } from "../../Context/NotificationContext";
 
@@ -21,7 +21,6 @@ const Login = ({ setUserAd, setUserRoleAd }) => {
   const db = getDatabase();
 
   const { showNotification } = useNotification();
-  const navigate = useNavigate();
 
   function signUpSubmit() {
     if (!user || !role || !empcode || !password || !email) {
@@ -52,7 +51,7 @@ const Login = ({ setUserAd, setUserRoleAd }) => {
             setUserAd(newUserData.user);
             setUserRoleAd(newUserData.role);
             setTimeout(() => {
-              navigate(role === "admin" ? "/admin" : "/employee");
+              <Navigate to={data.role === "admin" ? "/admin" : "/employee"} />;
             }, 1000);
           })
           .catch((error) => {
@@ -81,7 +80,7 @@ const Login = ({ setUserAd, setUserRoleAd }) => {
           setUserRoleAd(data.role);
           showNotification("Logged In Scuccesfully");
           setTimeout(() => {
-            navigate(data.role === "admin" ? "/admin" : "/employee");
+            <Navigate to={data.role === "admin" ? "/admin" : "/employee"} />;
           }, 2000);
         } else {
           showNotification("Wrong Password Entered");
