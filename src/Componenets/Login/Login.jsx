@@ -51,7 +51,7 @@ const Login = ({ setUserAd, setUserRoleAd }) => {
             setUserAd(newUserData.user);
             setUserRoleAd(newUserData.role);
             setTimeout(() => {
-              <Navigate to={data.role === "admin" ? "/admin" : "/employee"} />;
+              <Navigate to={data.role === "admin" ? "/admin" : "/employee"} replace/>;
             }, 1000);
           })
           .catch((error) => {
@@ -80,7 +80,7 @@ const Login = ({ setUserAd, setUserRoleAd }) => {
           setUserRoleAd(data.role);
           showNotification("Logged In Scuccesfully");
           setTimeout(() => {
-            <Navigate to={data.role === "admin" ? "/admin" : "/employee"} />;
+            <Navigate to={data.role === "admin" ? "/admin" : "/employee"} replace/>;
           }, 2000);
         } else {
           showNotification("Wrong Password Entered");

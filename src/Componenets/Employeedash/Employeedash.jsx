@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import profile_img from "../../assets/profile.png";
 import TTM_icon from '../../assets/TTM_icon.png'
+import Profile from "../MainComponents/Profile";
+import Dashboard from "../MainComponents/Dashboard";
+import Search from "../MainComponents/Search";
+import MyTasks from "../MainComponents/MyTasks";
 const Employeedash = ({logout}) => {
   const user = window.localStorage.getItem("user");
   const userFirst = user.split(" ").at(0);
   const role = window.localStorage.getItem("role");
   const empcode = window.localStorage.getItem("empcode");
+  const [searchText , setSearchText] = useState("");
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [profile , setProfile] = useState(false);
+
   const handleProfileClick = () =>{
     if(profile){
       setProfile(false);
@@ -14,6 +21,15 @@ const Employeedash = ({logout}) => {
       setProfile(true);
     }
   }
+
+
+  const handleTabClick = (tabName) => {
+    if (activeTab === tabName) {
+      setActiveTab("dashboard");
+    } else {
+      setActiveTab(tabName);
+    }
+  };
   return (
     <div className="admin_dash">
       <div className="sidebar">
@@ -24,8 +40,26 @@ const Employeedash = ({logout}) => {
               TEAM TASK MANAGMENT
             </p>
           </div>
-          <p>Dashboard</p>
-          <p>My Tasks</p>
+          <p
+            className={
+              activeTab === "dashboard"
+                ? "sidebar_option active"
+                : "sidebar_option"
+            }
+            onClick={() => handleTabClick("dashboard")}
+          >
+            Dashboard
+          </p>
+          <p
+            className={
+              activeTab === "myTasks"
+                ? "sidebar_option active"
+                : "sidebar_option"
+            }
+            onClick={() => handleTabClick("myTasks")}
+          >
+            My Tasks
+          </p>
         </div>
         <div className="sidebar_profile" onClick={handleProfileClick}>
         <img src={profile_img} alt="" />Profile
@@ -34,7 +68,14 @@ const Employeedash = ({logout}) => {
       </div>
       <div className="main_dash">
         <div className="header">
-          <input type="text" placeholder="search" />
+        <div className="search_bar">
+          <input type="text" value={searchText} placeholder="Enter empCode or taskId" onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}/>
+          <button type="submit" onClick={()=>{
+            handleTabClick("search_bar")
+          }}>Search</button>
+          </div>
           <div className="left_header" >
             <div className="profile" onClick={handleProfileClick}>
             <img src={profile_img} alt="" />
@@ -44,14 +85,20 @@ const Employeedash = ({logout}) => {
           </div>
         </div>
         <div className="main_content">
-          {profile && (
-            <div className="profile_view">
-              <img src={profile_img} alt="prifle image" width="100px" height="100px"/>
-              <p>Username : -  {user}</p>
-              <p>Employee Code : -  {empcode}</p>
-              <p>Role : -  {role}</p>
+          {activeTab === "dashboard" && (
+            <Dashboard />
+          )}
 
-            </div>
+          {activeTab === "profile" && (
+            <Profile user={user} empcode={empcode} role={role} />
+          )}
+
+          {activeTab === "myTasks" && (
+            <MyTasks/>
+          )}
+
+          {activeTab === "search_bar" && (
+            <Search searchText={searchText}/>
           )}
         </div>
       </div>
